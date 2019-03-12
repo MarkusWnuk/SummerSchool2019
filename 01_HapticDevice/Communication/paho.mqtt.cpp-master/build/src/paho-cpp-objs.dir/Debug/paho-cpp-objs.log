@@ -1,0 +1,14 @@
+﻿  async_client.cpp
+  client.cpp
+  disconnect_options.cpp
+  iclient_persistence.cpp
+  message.cpp
+  response_options.cpp
+  ssl_options.cpp
+  string_collection.cpp
+  token.cpp
+  topic.cpp
+  connect_options.cpp
+  will_options.cpp
+  Code wird generiert...
+  paho-cpp-objs.vcxproj -> D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\Debug\paho-cpp-objs.lib

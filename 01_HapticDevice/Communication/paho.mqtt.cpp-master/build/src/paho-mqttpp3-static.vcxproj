@@ -1,0 +1,234 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project DefaultTargets="Build" ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <ItemGroup Label="ProjectConfigurations">
+    <ProjectConfiguration Include="Debug|Win32">
+      <Configuration>Debug</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="Release|Win32">
+      <Configuration>Release</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="MinSizeRel|Win32">
+      <Configuration>MinSizeRel</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+    <ProjectConfiguration Include="RelWithDebInfo|Win32">
+      <Configuration>RelWithDebInfo</Configuration>
+      <Platform>Win32</Platform>
+    </ProjectConfiguration>
+  </ItemGroup>
+  <PropertyGroup Label="Globals">
+    <ProjectGuid>{2A173BBC-238C-34B6-9C7C-08156C09515D}</ProjectGuid>
+    <WindowsTargetPlatformVersion>10.0.17134.0</WindowsTargetPlatformVersion>
+    <Keyword>Win32Proj</Keyword>
+    <Platform>Win32</Platform>
+    <ProjectName>paho-mqttpp3-static</ProjectName>
+    <VCProjectUpgraderObjectName>NoUpgrade</VCProjectUpgraderObjectName>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.Default.props" />
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'" Label="Configuration">
+    <ConfigurationType>StaticLibrary</ConfigurationType>
+    <CharacterSet>MultiByte</CharacterSet>
+    <PlatformToolset>v141</PlatformToolset>
+  </PropertyGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.props" />
+  <ImportGroup Label="ExtensionSettings">
+  </ImportGroup>
+  <ImportGroup Label="PropertySheets">
+    <Import Project="$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props" Condition="exists('$(UserRootDir)\Microsoft.Cpp.$(Platform).user.props')" Label="LocalAppDataPlatform" />
+  </ImportGroup>
+  <PropertyGroup Label="UserMacros" />
+  <PropertyGroup>
+    <_ProjectFileVersion>10.0.20506.1</_ProjectFileVersion>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\Debug\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">paho-mqttpp3-static.dir\Debug\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">paho-mqttpp3-static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\Release\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">paho-mqttpp3-static.dir\Release\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">paho-mqttpp3-static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\MinSizeRel\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">paho-mqttpp3-static.dir\MinSizeRel\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">paho-mqttpp3-static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">.lib</TargetExt>
+    <OutDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\RelWithDebInfo\</OutDir>
+    <IntDir Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">paho-mqttpp3-static.dir\RelWithDebInfo\</IntDir>
+    <TargetName Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">paho-mqttpp3-static</TargetName>
+    <TargetExt Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">.lib</TargetExt>
+  </PropertyGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Debug|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Debug/</AssemblerListingLocation>
+      <BasicRuntimeChecks>EnableFastChecks</BasicRuntimeChecks>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>Disabled</InlineFunctionExpansion>
+      <Optimization>Disabled</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDebugDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;CMAKE_INTDIR="Debug";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_DEBUG;_WINDOWS;CMAKE_INTDIR=\"Debug\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='Release|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>Release/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>AnySuitable</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="Release";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"Release\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='MinSizeRel|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>MinSizeRel/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MinSpace</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="MinSizeRel";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+      <DebugInformationFormat>
+      </DebugInformationFormat>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"MinSizeRel\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemDefinitionGroup Condition="'$(Configuration)|$(Platform)'=='RelWithDebInfo|Win32'">
+    <ClCompile>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <AssemblerListingLocation>RelWithDebInfo/</AssemblerListingLocation>
+      <CompileAs>CompileAsCpp</CompileAs>
+      <DebugInformationFormat>ProgramDatabase</DebugInformationFormat>
+      <ExceptionHandling>Sync</ExceptionHandling>
+      <InlineFunctionExpansion>OnlyExplicitInline</InlineFunctionExpansion>
+      <Optimization>MaxSpeed</Optimization>
+      <PrecompiledHeader>NotUsing</PrecompiledHeader>
+      <RuntimeLibrary>MultiThreadedDLL</RuntimeLibrary>
+      <RuntimeTypeInfo>true</RuntimeTypeInfo>
+      <WarningLevel>Level3</WarningLevel>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR="RelWithDebInfo";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <ObjectFileName>$(IntDir)</ObjectFileName>
+    </ClCompile>
+    <ResourceCompile>
+      <PreprocessorDefinitions>WIN32;_WINDOWS;NDEBUG;CMAKE_INTDIR=\"RelWithDebInfo\";%(PreprocessorDefinitions)</PreprocessorDefinitions>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+    </ResourceCompile>
+    <Midl>
+      <AdditionalIncludeDirectories>D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\src;D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.c-master\src;%(AdditionalIncludeDirectories)</AdditionalIncludeDirectories>
+      <OutputDirectory>$(ProjectDir)/$(IntDir)</OutputDirectory>
+      <HeaderFileName>%(Filename).h</HeaderFileName>
+      <TypeLibraryName>%(Filename).tlb</TypeLibraryName>
+      <InterfaceIdentifierFileName>%(Filename)_i.c</InterfaceIdentifierFileName>
+      <ProxyFileName>%(Filename)_p.c</ProxyFileName>
+    </Midl>
+    <Lib>
+      <AdditionalOptions>%(AdditionalOptions) /machine:X86</AdditionalOptions>
+    </Lib>
+  </ItemDefinitionGroup>
+  <ItemGroup>
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\async_client.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\client.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\disconnect_options.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\iclient_persistence.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\message.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\response_options.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\ssl_options.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\string_collection.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\token.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\topic.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\connect_options.obj" />
+    <Object Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.dir\$(Configuration)\will_options.obj" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\ZERO_CHECK.vcxproj">
+      <Project>{E58CB8D9-C460-3BFA-88CB-5D6EC04D77B8}</Project>
+      <Name>ZERO_CHECK</Name>
+    </ProjectReference>
+    <ProjectReference Include="D:\01_Projekte\P_01_Soft_Tissue_Robotics\11_Demostrators\05_SummerSchool2019\01_HapticDevice\Communication\paho.mqtt.cpp-master\build\src\paho-cpp-objs.vcxproj">
+      <Project>{5901171C-1CC9-3288-BC4A-2CFA53D3212C}</Project>
+      <Name>paho-cpp-objs</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
+  <ImportGroup Label="ExtensionTargets">
+  </ImportGroup>
+</Project>
