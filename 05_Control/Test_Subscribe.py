@@ -37,4 +37,4 @@ client.username_pw_set(user, pw)
 client.connect(broker_address)
 
 client.subscribe("Force_n")
-client.loop_forever()
+client.loop_start()
