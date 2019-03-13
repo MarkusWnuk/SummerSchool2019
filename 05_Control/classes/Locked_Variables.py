@@ -55,7 +55,7 @@ class Locked_Values:
 
     """
 
-    def __init__(self, name, dimensions):
+    def __init__(self, name, dimensions, topic):
         """
         Initializes the variable with the value of 0.0
         Args:
@@ -66,6 +66,7 @@ class Locked_Values:
         self.dimensions = dimensions
         self.values = [0.0]*dimensions
         self.lock = Lock()
+        self.topic = topic
 
     def read_value(self):
         """To read the value of the object. Value is locked during the readout
