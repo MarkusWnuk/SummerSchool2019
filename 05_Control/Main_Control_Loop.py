@@ -111,7 +111,7 @@ def on_message_haptic(client, userdata, msg):
                     """
     #print(msg.topic + " " + str(msg.payload))
     str_msg = (msg.payload).decode('utf8')           #Decode to Message to utf8
-    # print(str_msg)
+    print(str_msg)
     j = json.loads(str_msg)                          #Translate the String in a Json Format (as in Description)
     px = float(j["Px"])                              #Readout the x Position
     py = float(j["Py"])                              #Readout the y Position
@@ -230,7 +230,7 @@ while(mainLoopFlag):
     Hstr = '{\"Fx\":' + str(fx) + ', \"Fy\":0.0, \"Fz\":0.0}'
     # print(Hstr)
     Hjsn = json.loads(Hstr)
-    print(Hstr)
+    # print(Hstr)
 
     Hstr_zero = '{\"Fx\":0.0, \"Fy\":0.0, \"Fz\":0.0}'
     Hjsn_zero = json.loads(Hstr_zero)
