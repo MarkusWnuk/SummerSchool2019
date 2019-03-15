@@ -236,7 +236,7 @@ while(mainLoopFlag):
         Haptic Device 
         ------------------------------------------------------------------- 
     """
-    fx = 6*stateVar_scale[0]          #Normalkraft Load Cell ist x
+    fx = 3*stateVar_scale[0]          #Normalkraft Load Cell ist x
     print(fx)
     fy = stateVar_pen[1]            #Fy bei Haptic = fx bei Pen
     fz = -stateVar_pen[0]            #Fz bei Haptic = fy bei Pen
