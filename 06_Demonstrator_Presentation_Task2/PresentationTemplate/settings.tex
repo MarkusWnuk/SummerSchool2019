@@ -1,0 +1,116 @@
+\definecolor{uniSblue}{RGB}{0,65,145}
+\definecolor{uniSlightblue}{RGB}{0,190,255}
+\definecolor{uniSgrey}{RGB}{62, 68, 76}
+\definecolor{uniSyellow}{RGB}{255, 213, 0}
+
+% colors not covered by CD but still useful
+\definecolor{uniSred}{RGB}{230, 0, 50}
+\definecolor{uniSgreen}{RGB}{0, 200, 50} 
+
+%\usetheme{Luebeck}
+\usetheme{boxes}
+%\usecolortheme{beaver} %rot
+\usecolortheme{seagull} %grau
+
+%\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+\usepackage{fontspec}
+\defaultfontfeatures{Ligatures=TeX}
+%\usepackage[]{unicode-math} 
+%\unimathsetup{math-style=TeX}
+%\setmainfont[SmallCapsFeatures={LetterSpace=6}, Numbers={Proportional,OldStyle}, Ligatures=TeX]{Univers for UniS 55 Roman Rg}
+%\setmonofont[Scale=0.9]{Hack}
+%\setmainfont[SmallCapsFeatures={LetterSpace=6}, Numbers={Proportional,OldStyle}]{Minion Pro}
+%\setmainfont[LetterSpace=3, Numbers={Proportional,OldStyle}, Ligatures=TeX]{Myriad Pro}
+\defaultfontfeatures{Mapping=tex-text}
+%
+
+\usepackage{tikz, pgfplots}
+
+\usepackage[ngerman, english]{babel}% Silbentrennung
+
+%do not ovelap with footer line
+\addtobeamertemplate{footnote}{}{\vspace{2.5ex}}
+
+%footnotes without numbering with \blankfootnote{}
+\let\svthefootnote\thefootnote
+\textheight 1in
+\newcommand\blankfootnote[1]{%
+	\let\thefootnote\relax\footnotetext{\tiny #1}%
+	\let\thefootnote\svthefootnote%
+}
+
+
+
+%item color setzen
+\setbeamercolor{itemize item}{fg=uniSlightblue}
+\setbeamercolor{itemize subitem}{fg=uniSlightblue}
+
+
+\setbeamercolor{block title}{bg=uniSlightblue,fg=white}
+\setbeamercolor{block body}{bg=uniSlightblue!10,fg=black}
+
+\setbeamercolor*{structure}{bg=uniSlightblue,fg=uniSlightblue}
+
+\setbeamercolor*{palette primary}{use=structure,fg=uniSlightblue,bg=structure.fg}
+\setbeamercolor*{palette secondary}{use=structure,fg=uniSlightblue,bg=structure.fg!75}
+\setbeamercolor*{palette tertiary}{use=structure,fg=white,bg=black}
+\setbeamercolor*{palette quaternary}{fg=white,bg=black}
+
+\setbeamercolor{section in toc}{fg=black,bg=white}
+\setbeamercolor{alerted text}{use=structure,fg=structure.fg!50!black!80!black}
+
+\setbeamercolor{titlelike}{parent=palette primary,fg=structure.fg!50!black}
+\setbeamercolor{frametitle}{bg=white,fg=uniSgrey}
+
+\setbeamercolor*{titlelike}{parent=palette primary}
+
+
+%\setbeamercovered{transparent}
+
+\setbeamertemplate{navigation symbols}{}%remove navigation symbols
+\setbeamertemplate{itemize items}[circle]
+
+
+
+% http://tex.stackexchange.com/questions/55806/tikzpicture-in-beamer/55827#55827
+  \tikzset{
+    invisible/.style={opacity=0},
+    visible on/.style={alt=#1{}{invisible}},
+    alt/.code args={<#1>#2#3}{%
+      \alt<#1>{\pgfkeysalso{#2}}{\pgfkeysalso{#3}} % \pgfkeysalso doesn't change the path
+    },
+  }
+  \tikzset{onslide/.code args={<#1>#2}{%
+  \only<#1>{\pgfkeysalso{#2}} % \pgfkeysalso doesn't change the path
+}}
+
+
+
+
+\newcommand{\partitle}[1]{\textcolor{uniSlightblue}{\textbf{#1}}\\ \smallskip}
+
+% argument #1: any options
+\newenvironment{customlegend}[1][]{%
+	\begingroup
+	% inits/clears the lists (which might be populated from previous
+	% axes):
+	\csname pgfplots@init@cleared@structures\endcsname
+	\pgfplotsset{#1}%
+}{%
+	% draws the legend:
+	\csname pgfplots@createlegend\endcsname
+	\endgroup
+}%
+
+\pgfplotsset{compat=newest}
+
+
+% makes \addlegendimage available (typically only available within an
+% axis environment):
+\def\addlegendimage{\csname pgfplots@addlegendimage\endcsname}
+\def\addlegendentry{\csname pgfplots@addlegendentry\endcsname}
+
+
+
