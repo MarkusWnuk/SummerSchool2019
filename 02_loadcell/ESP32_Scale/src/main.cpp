@@ -37,7 +37,7 @@ const char* mqtt_server = "192.169.1.3";
 
 void setup() {
 
-  Serial.begin(9600);
+  //Serial.begin(9600);
 
   pinMode(LED_BUILTIN, OUTPUT);
 
@@ -53,7 +53,7 @@ void setup() {
   esp_wifi_sta_wpa2_ent_enable(&config); //set config settings to enable function
   #endif
   WiFi.begin(ssid,password); //connect to wifi
-  Serial.println("Wifi connected");
+  //Serial.println("Wifi connected");
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
     //Serial.print(".");
@@ -65,8 +65,8 @@ void setup() {
 
   client.setServer(mqtt_server, 1883);
   client.connect("scale");
-  Serial.println("MQTT connected");
-  Serial.println("Starting transmission");
+  //Serial.println("MQTT connected");
+  //Serial.println("Starting transmission");
   delay(1000);
   delay(1000);
 
@@ -104,8 +104,8 @@ sprintf(scaleval, "{\"F_n\":%2.2f}",scaleval_fl);
 client.publish("Force_n",scaleval);
 digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
 
-unsigned long diffMillis = currentMillis - previousMillis;
-previousMillis = currentMillis;
-Serial.println(diffMillis,7);
+//unsigned long diffMillis = currentMillis - previousMillis;
+//previousMillis = currentMillis;
+//Serial.println(diffMillis,7);
 
 }

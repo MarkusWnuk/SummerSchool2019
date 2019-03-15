@@ -40,18 +40,17 @@ const char* mqtt_server = "192.169.1.3";
 void setup () {
   pinMode(LED_BUILTIN, OUTPUT);
 
+  pinMode(flex_pin1, INPUT);
+  pinMode(flex_pin2, INPUT);
+  pinMode(flex_pin3, INPUT);
+  pinMode(flex_pin4, INPUT);
 
-   pinMode(flex_pin1, INPUT);
-   pinMode(flex_pin2, INPUT);
-   pinMode(flex_pin3, INPUT);
-   pinMode(flex_pin4, INPUT);
-
-  Serial.begin(9600);
+  //Serial.begin(9600);
   delay(10);
   #if USE_WIFI
-  Serial.println();
-  Serial.print("Connecting to network: ");
-  Serial.println(ssid);
+  //Serial.println();
+  //Serial.print("Connecting to network: ");
+  //Serial.println(ssid);
   WiFi.disconnect(true);  //disconnect form wifi to set new wifi connection
   WiFi.mode(WIFI_STA); //init wifi mode
   #if USE_WPA2_ENTERPRISE
@@ -64,21 +63,21 @@ void setup () {
   WiFi.begin(ssid,password); //connect to wifi
   while (WiFi.status() != WL_CONNECTED) {
     delay(500);
-    Serial.print(".");
+    //Serial.print(".");
     counter++;
     if(counter>=60){ //after 30 seconds timeout - reset board
       ESP.restart();
     }
   }
-  Serial.println("");
-  Serial.println("WiFi connected");
-  Serial.println("IP address set: "); 
-  Serial.println(WiFi.localIP()); //print LAN IP
+  //Serial.println("");
+  //Serial.println("WiFi connected");
+  //Serial.println("IP address set: "); 
+  //Serial.println(WiFi.localIP()); //print LAN IP
 
   client.setServer(mqtt_server, 1883);
   client.connect("pen");
   #else
-  Serial.begin(9600);
+  //Serial.begin(9600);
   #endif
 }
 
@@ -214,7 +213,7 @@ float avey=sumy/window_size;
       client.loop();
       client.publish("Flex_pen",json_string);
       #else
-      Serial.println(json_string);
+      //Serial.println(json_string);
       //delay(100);
       #endif
       digitalWrite(LED_BUILTIN, !digitalRead(LED_BUILTIN));
