@@ -10,6 +10,16 @@ alpha=135.0/180.0*math.pi
 c_r=math.cos(alpha)
 s_r=math.sin(alpha)
 
+def ballonlimit(Hapticforces):
+    normal_force_limit = 2
+    max_force_haptic = 5
+    hapticforces_in = Hapticforces
+    Normalforce = hapticforces_in[0]
+    if Normalforce > normal_force_limit:
+        hapticforces_in[0]= max_force_haptic
+
+    hapticforces_out = hapticforces_in
+    return hapticforces_out
 
 #Initialize the locked variables
 scale_current_force = Locked_Values("Scale",1, "Force_n")                                             #Scale Value Normal Force [N]
@@ -22,7 +32,11 @@ mainLoopFlag = True
 deadmanswitch = False
 
 # Information about the Broker
-broker_address="130.216.153.37"
+#broker_address="130.216.153.37"
+#user = "summer2019"
+#pw = "softtissue"
+
+broker_address="192.169.1.3"
 user = "summer2019"
 pw = "softtissue"
 
@@ -73,7 +87,7 @@ def on_message_scale(client, userdata, msg):
     #print("Update")
 
 def on_message_pen(client, userdata, msg):
-    #print(msg.topic + " " + str(msg.payload))
+    # print(msg.topic + " " + str(msg.payload))
     #j = json.load(msg.payload)
     #print(j["f1"])
     """Callback for Message of the pen
@@ -83,9 +97,12 @@ def on_message_pen(client, userdata, msg):
                     Returns:
                       Prints out if the the error message
                     """
-    # TODO Read/Decode the msg.payload
-    # TODO #Translate the String in a Json Format (as in Description)
-    # TODO # Readout the Forces
+    str_msg = (msg.payload).decode('utf8')  # Decode to Message to utf8
+    j = json.loads(str_msg)  # Translate the String in a Json Format (as in Description)
+    fx = float(j["Fx"])  # Readout the X Value
+    fy = float(j["Fy"])  # Readout the Normalforce
+    pen_current_force.write_value([float(fx),float(fy)]) #write the Normal Force to the attomic variable of the scale
+
     # TODO # write the Normal Force to the attomic variables of the scale
 def on_message_robot(client, userdata, msg):
     #rint(msg.topic + " " + str(msg.payload))
@@ -111,7 +128,7 @@ def on_message_haptic(client, userdata, msg):
                     """
     #print(msg.topic + " " + str(msg.payload))
     str_msg = (msg.payload).decode('utf8')           #Decode to Message to utf8
-    print(str_msg)
+    # print(str_msg)
     j = json.loads(str_msg)                          #Translate the String in a Json Format (as in Description)
     px = float(j["Px"])                              #Readout the x Position
     py = float(j["Py"])                              #Readout the y Position
@@ -159,7 +176,7 @@ client.message_callback_add("SafetyButton", on_message_saftybutton)          #sa
 
 #client.on_message = on_message
 
-client.username_pw_set(user, pw)                    # Set the Username and Password
+#client.username_pw_set(user, pw)                    # Set the Username and Password
 
 client.connect(broker_address)                      # Connect to broker
 client.loop_start()                                 # Start Loop as a separate Thread
@@ -205,6 +222,7 @@ while(mainLoopFlag):
     stateVar_scale = scale_current_force.read_value()
     stateVar_pen = pen_current_force.read_value()
     stateVar_robot = robot_current_position.read_value()
+    # print(stateVar_pen)
 
     """
     PROCESS
@@ -213,22 +231,18 @@ while(mainLoopFlag):
     -------------------------------------------------------------------    
     """
 
-    #print(robot_current_position.read_value())
 
-
-    # some Test JSON:
-    #fx= fx + 0.1
-
-    #if fx > 2:
-    #    fx = -2
     """
-        Haptic Device Start
+        Haptic Device 
         ------------------------------------------------------------------- 
     """
-    fx = stateVar_scale[0]
+    fx = 6*stateVar_scale[0]          #Normalkraft Load Cell ist x
+    print(fx)
+    fy = stateVar_pen[1]            #Fy bei Haptic = fx bei Pen
+    fz = -stateVar_pen[0]            #Fz bei Haptic = fy bei Pen
     # DUMMYWERTE für das haptic device
-    Hstr = '{\"Fx\":' + str(fx) + ', \"Fy\":0.0, \"Fz\":0.0}'
-    # print(Hstr)
+    Hstr = '{\"Fx\":' + str(fx) + ', \"Fy\":'+str(fy)+', \"Fz\":'+str(fz)+'}'
+    #print(Hstr)
     Hjsn = json.loads(Hstr)
     # print(Hstr)
 
@@ -237,7 +251,10 @@ while(mainLoopFlag):
     """ 
         -------------------------------------------------------------------
     """
-
+    """
+        Robot Target Values 
+        ------------------------------------------------------------------- 
+    """
 
     # Sollwerte für den Roboter
     # Direkt die Statevariablen des haptic device durchschicken
@@ -262,6 +279,7 @@ while(mainLoopFlag):
         OUTPUT
         -------------------------------------------------------------------
             Deprocess the output data and publish the data over MQTT
+            Output is only written when deadmanswitch is activated
         -------------------------------------------------------------------    
         """
     # print(deadmanswitch)
@@ -276,5 +294,6 @@ while(mainLoopFlag):
         client.publish("Sollwerte", json.dumps(Hjsn_zero))
 
     #print("Period: " + str(t - time.time()) + "s")
+
     time.sleep(max(0, t - time.time()))     #wait function for keep frequency of the loop
 
