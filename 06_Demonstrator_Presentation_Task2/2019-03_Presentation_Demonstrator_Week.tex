@@ -1,0 +1,306 @@
+% !TeX document-id = {6ded82bc-a22c-4503-a090-6b5ed60b2b6b}
+% !TeX program = lualatex
+% !TeX TXS-program:bibliography = txs:///bibtex
+
+\documentclass[
+xcolor=dvipsnames,
+aspectratio=169,
+9pt,
+%handout,
+]{beamer}
+
+\input{./PresentationTemplate/settings}
+\input{./PresentationTemplate/ChristophsAdditionalDrawingSettings}
+\input{./PresentationTemplate/MarkusAdditionalMoviePackages}
+\graphicspath{{./img/}}
+
+%%TITLE
+\defbeamertemplate*{title page}{customized}[1][]
+{
+	\begin{tikzpicture}[remember picture,overlay]
+		\filldraw[uniSgrey!20]([yshift=-40pt]current page.north west) rectangle (current page.south east);
+		\node[anchor=north west] 
+		at ([yshift=-4pt, xshift=10pt]current page.north west) (logo)
+		{\parbox[t]{.19\paperwidth}{\raggedleft%
+				\usebeamercolor[fg]{titlegraphic}\inserttitlegraphic}};
+		
+		\node[anchor= west] 
+		at ([xshift=4em, yshift=-20pt]current page.west) (STRimage)
+		{\includegraphics[width=.4\paperwidth]{../img/STR}};
+		
+		\node[fill=uniSgrey!80!black, circle, minimum size=18em, inner sep=0.3em, align=left, text width=14em] at ([xshift=-5cm, yshift=-0.5cm]current page.east) {
+		\begin{minipage}[][5cm][c]{5cm}	
+			{\raggedleft\scriptsize \textcolor{white}{\insertinstitute}}\\\vfill
+			{\raggedleft\usebeamerfont{title}\textcolor{white}{\normalsize\textbf{\inserttitle}}}\\
+			{\raggedleft\usebeamerfont{subtitle}\textcolor{white}{\small\textit{\insertsubtitle}}}\\\vfill
+			{\raggedleft\usebeamerfont{date}\textcolor{white}{\footnotesize\insertdate}}
+		\end{minipage}
+		};
+		\node[fill=white, circle, minimum size=2em, inner sep=5pt, align=center, text=uniSgrey, font=\footnotesize\selectfont] at ([xshift=-6em, yshift=-8em]current page.east) {\authorForTitle};
+	\end{tikzpicture}	
+}
+
+%%TITLE_END
+
+
+
+\title[Design and implementation of a teleoperated drawing robot]{Design and implementation of a teleoperated drawing robot}
+
+
+\author{F. Jaensch, J. Terfurth, M. Wnuk, Z. Chen, D. Tomzik, J. Shahabi, A. Garrett, Kandasamy S., M. Mahmoudinezhad}
+\newcommand{\authorForTitle}{F. Jaensch, J. Terfurth,\\ M. Wnuk, Z. Chen,\\ D. Tomzik, J. Shahabi,\\ A. Garrett, Kandasamy S., \\ M. Mahmoudinezhad}
+\titlegraphic{\includegraphics[height=30pt]{LogosUSTUTT_UOA}}
+\institute{DFG IRTG GRK2198/1\newline Soft Tissue Robotics}
+\date{26 March 2019}
+
+
+% This is only inserted into the PDF information catalog. Can be left
+% out.
+\subject{IRTG Project presentation}
+
+\begin{document}
+	
+	\addtobeamertemplate{frametitle}{}{%
+		\begin{tikzpicture}[remember picture,overlay]
+		\node[anchor=north east,yshift=3pt,xshift=0pt] at (current page.north east)
+		{\includegraphics[height=0.8cm]{img/LogosUSTUTT_UOA}};
+		\end{tikzpicture}}
+	
+	%{\usebackgroundtemplate{\includegraphics[height=1.0\paperheight]{img/cnc_milling_low.jpg}}
+		\begin{frame}
+		\titlepage
+		\end{frame}%}
+
+\setbeamertemplate{footline}[text line]{%
+	\parbox{\linewidth}{\vspace*{-8pt}\insertframenumber\hfill %\insertshortauthor:~
+    \insertshorttitle\hfill}}
+\setbeamertemplate{navigation symbols}{}
+
+\AtBeginSection[]{
+\begin{frame}
+\frametitle{Contents}
+\tableofcontents[ 
+currentsubsection, 
+hideothersubsections, 
+sectionstyle=show/shaded, 
+subsectionstyle=show/shaded, 
+] 
+%You might wish to add the option [pausesections]
+\end{frame}
+}
+
+\AtBeginSubsection[]{
+	\begin{frame}
+	\frametitle{Contents}
+	\tableofcontents[ 
+	currentsubsection, 
+	hideothersubsections, 
+	sectionstyle=show/hide, 
+	subsectionstyle=show/shaded, 
+	] 
+	%You might wish to add the option [pausesections]
+	\end{frame}
+}
+
+
+%% Build a slide like this and place LaTeX content within
+%\begin{frame}{Frame title}
+%
+%\end{frame}
+% ----------------------------------------------------------------------------------------------------------
+% ----------------------------------------------------------------------------------------------------------
+%\section{Motivation}
+%% ----------------------------------------------------------------------------------------------------------
+%
+%\begin{frame}{What is intelligence?}
+%	\begin{tabular}{c p{10cm}}
+%		\structure{Definition:} & "...the resultant of the process of \structure{acquiring}, \structure{storing} in memory, \structure{retrieving}, \structure{combining}, \structure{comparing}, and \structure{using} in new contexts \structure{information} and conceptual skills" \\& 		- Lloyd Humphreys
+%	\end{tabular}
+%	
+%		\begin{center}
+%		\movie[width=0.5\linewidth,
+%		height=0.28125\linewidth,poster,loop]{}{vid/MotivationVid_Challenge_Ape.mov}
+%	\end{center}	
+%	
+%%	\begin{center}	
+%%		\includemedia[
+%%		height=4.5cm,
+%%		keepaspectratio,
+%%		activate=pageopen,
+%%		addresource=vid/MotivationVid_Challenge_final.MP4,
+%%		flashvars={source=vid/MotivationVid_Challenge_final.MP4}
+%%		]{}{VPlayer.swf}
+%%	\end{center} 
+%\end{frame}
+
+% ----------------------------------------------------------------------------------------------------------
+%\begin{frame}{Industrial Challenges \& Applications}
+%	
+%	\begin{center}
+%		\movie[width=0.8\linewidth,
+%		height=0.45\linewidth,poster]{}{vid/MotivationVid_Industrial.mov}
+%	\end{center}
+%	
+%	
+%%	\begin{center}
+%%		\includemedia[
+%%			width=0.5\linewidth,
+%%			height=0.45\linewidth,
+%%			activate=pageopen,
+%%			addresource=vid/MotivationVid_Industrial.MP4,
+%%			flashvars={source=vid/MotivationVid_Industrial.MP4}
+%%			]{}{VPlayer.swf}
+%%		\end{center} 	
+%	
+%\end{frame}
+%
+%\begin{frame}{Medical Challenges \& Applications}
+%	\begin{center}
+%		\movie[width=0.8\linewidth,
+%		height=0.45\linewidth,poster]{}{vid/MotivationVid_Medical.mov}
+%	\end{center}	
+%	
+%%	\includemedia[
+%%		width=0.8\linewidth,
+%%		height=0.45\linewidth,
+%%		activate=pageopen,
+%%		addresource=vid/MotivationVid_Medical.MP4,
+%%		flashvars={source=vid/MotivationVid_Medical.MP4}
+%%		]{}{VPlayer.swf}
+%\end{frame}
+
+
+
+% ----------------------------------------------------------------------------------------------------------
+\section{Setup description}
+\begin{frame}{Motivation}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Say why our task is important
+				\item ...
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{center}
+				\begin{figure}
+					\includegraphics[width=1\textwidth]{img/Wolowitz.jpg}
+					\caption{Robotic teleoperation in an everyday scenario. Picture taken from the SitCom ``The Big Bang Theory''}
+				\end{figure}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Goal}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Define goal set for the demonstrator week here
+				\item ...
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{center}
+				\begin{figure}
+					\resizebox{0.6\columnwidth}{!}{
+					\includegraphics[width=1\textwidth]{img/ConceptDrawing.jpg}
+					}
+					\caption{Original concept for the 2019 summer school demonstrator}
+				\end{figure}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+\begin{frame}{Problem formulation}
+	\begin{columns}
+		\begin{column}{0.4\textwidth}
+			\begin{itemize}
+				\item Here goes the description of the involved problems
+				\item Force feedback from soft tissue
+				\item control for the system
+				\item sensor
+				\item communication and interfaces
+				\item ...
+			\end{itemize}
+		\end{column}
+		\begin{column}{0.6\textwidth}
+			\begin{center}
+				\begin{figure}
+					\resizebox{0.8\columnwidth}{!}{
+						\includegraphics[width=1\textwidth]{img/ProblemDescription_BallandPen.jpg}
+					}
+					\caption{Balloon and pen during a drawing task. The pointy tip of the pen threatens to burst the balloon.}
+				\end{figure}
+			\end{center}
+		\end{column}
+	\end{columns}
+\end{frame}
+
+
+%-------------------------------------------------------------------------------
+
+\section{Concept and realization}
+
+\begin{frame}{Concept of the teleoperated drawing robot}
+	
+	Figure of the overall concept ...
+	
+\end{frame}
+
+
+\begin{frame}{Sensor development}
+
+	Explain how the sensors were developed and their working principle
+	
+\end{frame}
+
+% overview slide:
+
+
+\begin{frame}{Communication}
+
+	Explain the communication with MQTT Broker - IoT Style
+
+\end{frame}
+
+\begin{frame}{Control}
+
+	Explain the control logic and how the robot is teleoperated
+
+\end{frame}
+
+
+\section{Results}
+
+\begin{frame}{Teleoperated Robot motion}
+	Show video of the teleoperated robot motion here ...
+\end{frame}
+
+\begin{frame}{Force Feedback}
+	Show video of the force feedback to the haptic device here ...
+\end{frame}
+
+\begin{frame}{Drawing}
+	Show video/results of teleoperated drawig ...
+\end{frame} 
+
+%---------------------------------------------------------------------------
+
+\section{Conclusion}
+
+\begin{frame}{Conclusion \& next steps}
+
+	Come up with some conclusions here ...
+
+\end{frame}
+
+
+\begin{frame}{Thank you!}
+	
+	Say thanks to the PIs here ...
+	
+\end{frame}
+
+\end{document}
